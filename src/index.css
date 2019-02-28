@@ -12,3 +12,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+li{
+  list-style-type: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+#table {
+  border: 1px solid;
+}
+#table ul {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+#table ul li {
+  border-bottom: 1px solid;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+#table ul li label {
+  width: 110px;
+}
+#table ul li#tableHead{
+  font-weight: bold;
+}
+#table #options {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+#table #options label {
+  margin-right: 8px;
+}

@@ -1,0 +1,62 @@
+[
+{
+    "gameNumber" : "1423",
+    "status" : "Started",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "PLAY NOW"
+},
+{
+    "gameNumber" : "3221",
+    "status" : "Available",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "PLAY NOW"
+},
+{
+    "gameNumber" : "5460",
+    "status" : "Busy",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "VIEW"
+},
+{
+    "gameNumber" : "6555",
+    "status" : "Busy",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "PLAY NOW"
+},
+{
+    "gameNumber" : "1111",
+    "status" : "Started",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "VIEW"
+},
+{
+    "gameNumber" : "1862",
+    "status" : "Available",
+    "player1" : "aa12",
+    "player2" : "ooo2",
+    "round" : "A1",
+    "amount" : "30 C",
+    "time" : "20",
+    "action" : "PLAY NOW"
+}
+]

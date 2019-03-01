@@ -4,28 +4,27 @@ import Li from "./Li";
 class GameLis extends Component {
     state = {
         games:null,
-        statuses:["Busy","Available","Started"],
-        options:this.props.options
+        options:[],
     }
+    opts = []// option poxeluc pahvi stex, reload aneluc state-um dni vor menak et jamanak update lini
     componentDidMount() {
         this.requestGames();
-
     }
     //create array of Lis
-    makeGamesLis(key){
+    makeGamesLis(){
 
-        let {games} = this.state;       
+        let {games,options} = this.state;       
         //loadiiiiiing
         if(!games) {
             return <label>Loading ...</label>
         }
         let gamesLis = games.slice();
-        if(key) {
+        if(options.length>0) {
             console.log(this.state.options)
             gamesLis = gamesLis.filter(game=>{
-                for(let i = 0; i < key.length; i++) {
-                    console.log(key[i] + " : " + game.status)
-                    if(key[i] === game.status) return true;
+                for(let i = 0; i < options.length; i++) {
+                    console.log(options[i] + " : " + game.status)
+                    if(options[i] === game.status) return true;
                 }
                 return false;
             })
@@ -49,7 +48,25 @@ class GameLis extends Component {
         return gamesLis;
 
     }
-
+    changeOptions = (ev)=>{
+        if(ev.target.tagName != "INPUT") return
+        // let {options} = this.state;
+        // copy object from state...!?
+        let newOptions = this.opts.slice();
+        let value = ev.target.value;
+        let ind = newOptions.indexOf(value);
+        if(ind === -1) {
+          newOptions.push(value)
+        } else {
+          newOptions.splice(ind,1) 
+        }
+        this.opts  = newOptions;
+        // this.setState({options:newOptions})
+        console.log(newOptions)
+      }
+    reload = ()=>{
+        this.setState({options:this.opts})
+    }
     //request f
     requestGames(){
         fetch("http://5c76d7692179940014a138c5.mockapi.io/games")
@@ -58,8 +75,17 @@ class GameLis extends Component {
             .catch(err=>console.log(err))
     }
     render(){
-        let game = this.makeGamesLis(this.state.options)
-        return game;
+        return (
+        <div>
+            {this.makeGamesLis()}
+            <div onClick={this.changeOptions} id="options">
+                <input type="checkbox" id = "Busy" name = "Busy" value = "Busy" /><label htmlFor="Busy">Busy</label>
+                <input type="checkbox" id = "Available" name = "Available" value = "Available" /><label htmlFor="Available">Available</label>
+                <input type="checkbox" id = "Started" name = "Started" value = "Started" /><label htmlFor="Started">Started</label>
+                <button onClick={this.reload}>Reload</button>
+            </div>
+        </div>
+        )
     }
 }
 

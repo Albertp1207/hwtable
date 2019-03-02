@@ -4,7 +4,7 @@ import Li from "./Li";
 class GameLis extends Component {
     state = {
         games:null,
-        options:["Busy", "Available", "Started"],
+        options:["Busy", "Available", "Started"]
     }
     // opts = []// option poxeluc pahvi stex, reload aneluc state-um dni vor menak et jamanak update lini
     componentDidMount() {
@@ -79,9 +79,9 @@ class GameLis extends Component {
         <div>
             {this.makeGamesLis()}
             <div onClick={this.changeOptions} id="options">
-                <input checked type="checkbox" id = "Busy" name = "Busy" value = "Busy"  /><label htmlFor="Busy">Busy</label>
-                <input checked type="checkbox" id = "Available" name = "Available" value = "Available"  /><label htmlFor="Available">Available</label>
-                <input checked type="checkbox" id = "Started" name = "Started" value = "Started"  /><label htmlFor="Started">Started</label>
+                <input defaultChecked type="checkbox" id = "Busy" name = "Busy" value = "Busy"  /><label htmlFor="Busy">Busy</label>
+                <input defaultChecked type="checkbox" id = "Available" name = "Available" value = "Available"  /><label htmlFor="Available">Available</label>
+                <input defaultChecked type="checkbox" id = "Started" name = "Started" value = "Started"  /><label htmlFor="Started">Started</label>
                 <button onClick={this.reload}>Reload</button>
             </div>
         </div>

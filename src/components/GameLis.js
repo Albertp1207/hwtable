@@ -4,12 +4,15 @@ import Li from "./Li";
 class GameLis extends Component {
     state = {
         games:null,
-        options:[],
+        options:["Busy", "Available", "Started"],
     }
-    opts = []// option poxeluc pahvi stex, reload aneluc state-um dni vor menak et jamanak update lini
+    // opts = []// option poxeluc pahvi stex, reload aneluc state-um dni vor menak et jamanak update lini
     componentDidMount() {
         this.requestGames();
     }
+    // reload = ()=>{
+    //     this.setState({options:this.opts})
+    // }
     //create array of Lis
     makeGamesLis(){
 
@@ -46,13 +49,12 @@ class GameLis extends Component {
             )
         })
         return gamesLis;
-
     }
     changeOptions = (ev)=>{
         if(ev.target.tagName != "INPUT") return
-        // let {options} = this.state;
+        let {options} = this.state;
         // copy object from state...!?
-        let newOptions = this.opts.slice();
+        let newOptions = options.slice();
         let value = ev.target.value;
         let ind = newOptions.indexOf(value);
         if(ind === -1) {
@@ -61,12 +63,10 @@ class GameLis extends Component {
           newOptions.splice(ind,1) 
         }
         this.opts  = newOptions;
-        // this.setState({options:newOptions})
+        this.setState({options:newOptions})
         console.log(newOptions)
       }
-    reload = ()=>{
-        this.setState({options:this.opts})
-    }
+    
     //request f
     requestGames(){
         fetch("http://5c76d7692179940014a138c5.mockapi.io/games")
@@ -79,9 +79,9 @@ class GameLis extends Component {
         <div>
             {this.makeGamesLis()}
             <div onClick={this.changeOptions} id="options">
-                <input type="checkbox" id = "Busy" name = "Busy" value = "Busy" /><label htmlFor="Busy">Busy</label>
-                <input type="checkbox" id = "Available" name = "Available" value = "Available" /><label htmlFor="Available">Available</label>
-                <input type="checkbox" id = "Started" name = "Started" value = "Started" /><label htmlFor="Started">Started</label>
+                <input checked type="checkbox" id = "Busy" name = "Busy" value = "Busy"  /><label htmlFor="Busy">Busy</label>
+                <input checked type="checkbox" id = "Available" name = "Available" value = "Available"  /><label htmlFor="Available">Available</label>
+                <input checked type="checkbox" id = "Started" name = "Started" value = "Started"  /><label htmlFor="Started">Started</label>
                 <button onClick={this.reload}>Reload</button>
             </div>
         </div>

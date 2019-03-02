@@ -47,3 +47,8 @@ ul {
 #table #options label {
   margin-right: 8px;
 }
+
+.gg:checked{
+  background-color: red;
+  width: 200px;
+}
